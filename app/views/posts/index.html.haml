@@ -1,20 +1,30 @@
 .row
 .span8.offset2
-  %p
-    = link_to 'New Post', new_post_path
-  - @posts.each do |post|
-    .post
-      %h2
-        = post.title
+  - if user_signed_in?
+    %p= link_to 'New Post', new_post_path
+  - @posts.includes(:user).each do |post|
+    %div[post]
+      - if user_signed_in? and (current_user.has_role?(:posts, :edit) or current_user == post.user)
+        %h2.inline{contenteditable: "true"}
+          = post.title
+        %p.inline
+          = link_to(edit_post_url(post)) do
+            %i.icon-edit
+          = link_to(post, :method => :delete, data: { confirm: 'Are you sure?' }) do
+            %i.icon-remove
+
+      - else
+        %h2.inline
+          = post.title
       %p
         = post.created_at
         = post.user.respond_to?(:email) ? post.user.email : nil
 
-        - if current_user and current_user.has_role?(:posts, :destroy)
-          = link_to(post, :method => :delete, data: { confirm: 'Are you sure?' }) do
-            %i.icon-remove Remove
 
-      %p= post.body
+      - if user_signed_in? and (current_user.has_role?(:posts, :edit) or current_user == post.user)
+        %p{contenteditable: "true"}= post.body
+      - else
+        %p= post.body
 
 %br
 

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_rights, except: [:index, :show]
 
   # GET /posts
   # GET /posts.json
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user if user_signed_in?
 
     respond_to do |format|
       if @post.save
@@ -71,5 +73,11 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body, :published, :user_id)
+    end
+
+    def check_rights
+      unless user_signed_in? and ( current_user.admin? or current_user.owner?(@post) )
+        access_denied
+      end
     end
 end

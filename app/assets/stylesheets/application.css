@@ -12,5 +12,5 @@
  *= require_tree .
  */
 body { padding-top: 5em; }
-.inline { display: inline-block; }
-.post   { padding-bottom: 5em; }
+.inline   { display: inline-block; }
+.post     { padding-bottom: 5em; }

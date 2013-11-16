@@ -39,6 +39,9 @@ gem 'awesome_print'                   # For rails console
 gem 'thin'                            # Web server. Usage: rails s thin
 gem 'foreman'                         # Process manager. Usage: foreman start
 
+gem 'devise'                          # Flexible authentication solution for Rails with Warden
+gem "the_role"                        # Authorization for Rails 4 + admin UI
+
 group :development, :test do
   gem 'railroady'               # Class diagram generator. Usage: rake diagram:all
   gem 'better_errors'           # Better errors handler

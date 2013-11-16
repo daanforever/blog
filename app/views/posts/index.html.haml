@@ -8,7 +8,7 @@
         %h2.inline{contenteditable: "true"}
           = post.title
         %p.inline
-          = link_to(edit_post_url(post)) do
+          = link_to(edit_post_path(post)) do
             %i.icon-edit
           = link_to(post, :method => :delete, data: { confirm: 'Are you sure?' }) do
             %i.icon-remove

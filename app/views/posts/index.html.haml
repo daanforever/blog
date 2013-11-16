@@ -1,13 +1,14 @@
 .row
-.cpan10.offset1
+.span8.offset2
   = link_to 'New Post', new_post_path, class: 'pull-right'
   - @posts.each do |post|
     %h2 
       = post.title 
       = post.user
     %p= post.body
-    %p= link_to 'Edit', edit_post_path(post)
-    %p= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %p.pull-right
+      = link_to 'Edit', edit_post_path(post)
+      = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

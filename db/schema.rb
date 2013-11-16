@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116154209) do
+ActiveRecord::Schema.define(version: 20131116155911) do
 
   create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "published"
     t.integer  "user_id"
-    t.string   "subject"
-    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

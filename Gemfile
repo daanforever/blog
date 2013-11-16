@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '~>4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -39,6 +39,13 @@ gem 'awesome_print'                   # For rails console
 gem 'thin'                            # Web server. Usage: rails s thin
 gem 'foreman'                         # Process manager. Usage: foreman start
 
+gem 'devise'                          # Flexible authentication solution for Rails with Warden
+gem 'the_role', github: 'the-teacher/the_role' # Authorization for Rails 4 + admin UI
+
+gem 'haml'                            # HTML Abstraction Markup Language
+gem 'simple_form'                     # Forms made easy for Rails!
+
+
 group :development, :test do
   gem 'railroady'               # Class diagram generator. Usage: rake diagram:all
   gem 'better_errors'           # Better errors handler
@@ -49,6 +56,7 @@ group :development, :test do
   gem 'bullet'                  # Query optimization # TODO need to configure
   gem 'annotate'                # Annotate ActiveRecord models. Usage: annotate
   gem 'zeus'                    # Boot any rails app in under a second.
+  gem 'haml-rails'              # Integration for HAML
 end
 
 group :test do

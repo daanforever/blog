@@ -1,4 +1,0 @@
-blog
-====
-
-simple personal blog

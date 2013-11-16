@@ -1,14 +1,20 @@
 .row
 .span8.offset2
-  = link_to 'New Post', new_post_path, class: 'pull-right'
+  %p
+    = link_to 'New Post', new_post_path
   - @posts.each do |post|
-    %h2 
-      = post.title 
-      = post.user
-    %p= post.body
-    %p.pull-right
-      = link_to 'Edit', edit_post_path(post)
-      = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .post
+      %h2
+        = post.title
+      %p
+        = post.created_at
+        = post.user.respond_to?(:email) ? post.user.email : nil
+
+        - if current_user and current_user.has_role?(:posts, :destroy)
+          = link_to(post, :method => :delete, data: { confirm: 'Are you sure?' }) do
+            %i.icon-remove Remove
+
+      %p= post.body
 
 %br
 

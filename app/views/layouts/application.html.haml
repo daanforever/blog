@@ -26,12 +26,13 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Blog
+          = link_to 'Blog', root_url, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              - if user_signed_in?
+                %li= link_to "Logout", destroy_user_session_url, method: 'delete'
+              - else
+                %li= link_to "Login", new_user_session_url
 
     .container
 
@@ -39,6 +40,8 @@
         .span12
           = bootstrap_flash
           = yield
+          = yield :role_sidebar
+          = yield :role_main
     
       %footer
         %p &copy; Company 2013

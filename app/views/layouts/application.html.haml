@@ -26,13 +26,13 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to 'Blog', root_url, class: 'brand'
+          = link_to 'Blog', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
               - if user_signed_in?
-                %li= link_to "Logout", destroy_user_session_url, method: 'delete'
+                %li= link_to "Logout", destroy_user_session_path, method: 'delete'
               - else
-                %li= link_to "Login", new_user_session_url
+                %li= link_to "Login", new_user_session_path
 
     .container
 

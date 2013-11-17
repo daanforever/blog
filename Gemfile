@@ -45,6 +45,7 @@ gem 'the_role', github: 'the-teacher/the_role' # Authorization for Rails 4 + adm
 gem 'haml'                            # HTML Abstraction Markup Language
 gem 'simple_form'                     # Forms made easy for Rails!
 
+gem 'tinymce-rails'                   # Integration of TinyMCE with the Rails asset pipeline
 
 group :development, :test do
   gem 'railroady'               # Class diagram generator. Usage: rake diagram:all

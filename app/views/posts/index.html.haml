@@ -22,7 +22,7 @@
 
 
       - if user_signed_in? and (current_user.has_role?(:posts, :edit) or current_user == post.user)
-        %p{contenteditable: "true"}= sanitize post.body, tags: %w(b p i strong small big em tbody table tr td)
+        %p{contenteditable: "true"}= sanitize post.body, tags: %w(b p i strong small big em ul li tbody table tr td)
       - else
         %p= post.body.html_safe
 

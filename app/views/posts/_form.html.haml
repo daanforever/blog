@@ -3,8 +3,10 @@
 
   .form-inputs
     = f.input :title
-    = f.input :body
+    = f.input :body, input_html: { class: "tinymce", rows: 40, cols: 120 }
+    = tinymce
     = f.input :published
 
   .form-actions
     = f.button :submit
+

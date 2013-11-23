@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   # 3) LOGIN_REQUIRE => user_require_method   for other Authentication solution
 
   # Define method aliases for the correct TheRole's controller work
-  alias_method :login_required,     :authenticate_user!
+  # alias_method :login_required,     :authenticate_user!
   # alias_method :role_access_denied, :access_denied
 end

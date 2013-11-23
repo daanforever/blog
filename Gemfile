@@ -44,7 +44,7 @@ gem 'the_role', github: 'the-teacher/the_role'      # Authorization for Rails 4 
 gem 'activeadmin', github: 'gregbell/active_admin'  # The administration framework for Ruby on Rails.
 
 gem 'haml'                            # HTML Abstraction Markup Language
-gem 'simple_form'                     # Forms made easy for Rails!
+gem 'simple_form', github: 'plataformatec/simple_form' # Forms made easy for Rails!
 
 gem 'tinymce-rails'                   # Integration of TinyMCE with the Rails asset pipeline
 

@@ -1,4 +1,10 @@
 class CreateActiveAdminComments < ActiveRecord::Migration
+  def migrate(direction)
+    super
+    # Create a default user
+    User.create!(:email => 'dan@dron.me', :password => 'dan@dron.me', :password_confirmation => 'dan@dron.me') if direction == :up
+  end
+
   def self.up
     create_table :active_admin_comments do |t|
       t.string :namespace

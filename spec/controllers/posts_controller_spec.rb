@@ -30,6 +30,10 @@ describe PostsController do
   # PostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    sign_in FactoryGirl.create(:user)
+  end
+
   describe "GET index" do
     it "assigns all posts as @posts" do
       post = Post.create! valid_attributes

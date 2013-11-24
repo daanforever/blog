@@ -67,6 +67,7 @@ group :test do
   gem 'database_cleaner'        # Helper gem for rspec
   gem 'shoulda-matchers'        # Rspec-compatible one-liners
   gem 'simplecov', require: false # Code coverage
+  gem 'faker'                   # A library for generating fake data
   # gem 'capybara'                # User expirience testing
   # gem 'selenium-webdriver'      # Javascript driver for selenium
   # gem 'launchy'                 # For capybara

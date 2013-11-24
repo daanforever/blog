@@ -6,4 +6,3 @@
 /public/system/*
 /coverage/
 /spec/tmp/*
-config/initializers/secret_token.rb

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 56e93bbad5e93caa94cb9dcae900338390bc1e48
+  revision: 529bfeaa54858d2071c932eb6ddbd399832efbd9
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/the-teacher/the_role.git
-  revision: 7e768731e490f42c93f2187de504fbe900b04c58
+  revision: 8821c7a872ed61855857b960e0730e6447897df2
   specs:
     the_role (2.1.1)
       haml
@@ -100,6 +100,12 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     commonjs (0.2.7)
+    coveralls (0.7.0)
+      multi_json (~> 1.3)
+      rest-client
+      simplecov (>= 0.7)
+      term-ansicolor
+      thor
     daemons (1.1.9)
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
@@ -208,6 +214,8 @@ GEM
     ref (1.0.5)
     responders (1.0.0)
       railties (>= 3.2, < 5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-core (2.14.7)
     rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -254,6 +262,8 @@ GEM
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
     temple (0.6.7)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
     terminal-table (1.4.5)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
@@ -266,6 +276,7 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    tins (0.13.1)
     tinymce-rails (4.0.11)
       railties (>= 3.1.1)
     treetop (1.4.15)
@@ -300,6 +311,7 @@ DEPENDENCIES
   brakeman
   bullet
   coffee-rails (~> 4.0.0)
+  coveralls
   database_cleaner
   devise
   factory_girl_rails

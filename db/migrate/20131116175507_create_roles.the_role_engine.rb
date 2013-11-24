@@ -10,6 +10,21 @@ class CreateRoles < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    unless Role.with_name(:admin)
+      role = Role.create(
+        name: :admin,
+        title: "role for admin",
+        description:"this user can do anything"
+      )
+
+      role.create_rule(:system, :administrator)
+      role.rule_on(:system, :administrator)
+
+      say "Admin role created"
+    else
+      say "Admin role exists"
+    end
   end
 
   def self.down

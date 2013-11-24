@@ -1,33 +1,31 @@
-.row
-.span8.offset2
-  - if user_signed_in?
-    %p= link_to 'New Post', new_post_path
-  - @posts.includes(:user).each do |post|
-    %div[post]
-      - if user_signed_in? and (current_user.has_role?(:posts, :edit) or current_user == post.user)
-        %h2.inline{contenteditable: "true"}
-          = post.title
-        %p.inline
-          = link_to(edit_post_path(post)) do
-            %i.icon-edit
-          = link_to(post, :method => :delete, data: { confirm: 'Are you sure?' }) do
-            %i.icon-remove
+- if user_signed_in?
+  %p= link_to 'New Post', new_post_path
+- @posts.includes(:user).each do |post|
+  %div[post]
+    - if user_signed_in? and (current_user.has_role?(:posts, :edit) or current_user == post.user)
+      %h2.inline{contenteditable: "true"}
+        = post.title
+      %p.inline
+        = link_to(edit_post_path(post)) do
+          %i.icon-edit
+        = link_to(post, :method => :delete, data: { confirm: 'Are you sure?' }) do
+          %i.icon-remove
 
-      - else
-        %h2.inline
-          = post.title
-      %p
-        = post.created_at
-        = post.user.respond_to?(:email) ? post.user.email : nil
+    - else
+      %h2.inline
+        = post.title
+    %p
+      = post.created_at
+      = post.user.respond_to?(:email) ? post.user.email : nil
 
 
-      - if user_signed_in? and (current_user.has_role?(:posts, :edit) or current_user == post.user)
-        / %p{contenteditable: "true"}= sanitize post.body, tags: %w(b p i strong small big em ul li tbody table tr td)
-        %p{contenteditable: "true"}= sanitize post.body, 
-                                              tags: Settings.allowed_tags.split, 
-                                              attributes: Settings.allowed_attr.split
-      - else
-        %p= post.body.html_safe
+    - if user_signed_in? and (current_user.has_role?(:posts, :edit) or current_user == post.user)
+      / %p{contenteditable: "true"}= sanitize post.body, tags: %w(b p i strong small big em ul li tbody table tr td)
+      %p{contenteditable: "true"}= sanitize post.body, 
+                                            tags: Settings.allowed_tags.split, 
+                                            attributes: Settings.allowed_attr.split
+    - else
+      %p= post.body.html_safe
 
 %br
 
